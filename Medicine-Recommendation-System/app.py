@@ -7,20 +7,20 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load the model and data
-model = pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/model.pkl', 'rb'))
-label_encoder = pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/label_encoder.pkl', 'rb'))
-symptoms_list = pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/symptom_list.pkl', 'rb')) 
-disease_index= pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/disease_index.pkl', 'rb'))
-disease_list= pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/disease_list.pkl', 'rb'))
+model = pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/model.pkl', 'rb'))
+label_encoder = pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/label_encoder.pkl', 'rb'))
+symptoms_list = pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/symptom_list.pkl', 'rb')) 
+disease_index= pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/disease_index.pkl', 'rb'))
+disease_list= pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/disease_list.pkl', 'rb'))
 
-svc_model = pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/svc_model.pkl', 'rb'))
+svc_model = pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/svc_model.pkl', 'rb'))
 
 symptom_index = {symptom: idx for idx, symptom in enumerate(symptoms_list)}
-with open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/symptom_index.pkl','wb') as f:
+with open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/symptom_index.pkl','wb') as f:
     pickle.dump(symptom_index,f)
 
 #load the symptom index
-symptom_index = pickle.load(open('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\models/symptom_index.pkl','rb'))
+symptom_index = pickle.load(open('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\models/symptom_index.pkl','rb'))
 
 
 # 2. Function to predict disease from symptoms
@@ -36,11 +36,11 @@ def get_predicted_value(patient_symptoms):
 
 
 # load the  datasets
-precautions = pd.read_csv("E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\dataset\precautions_df.csv")
-workout = pd.read_csv("E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\dataset\workout_df.csv")
-description = pd.read_csv("E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\dataset\description.csv")
-medications = pd.read_csv('E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\dataset\medications.csv')
-diets = pd.read_csv("E:\Medicine-Recommendation-System-main\Medicine-Recommendation-System-main\dataset\diets.csv")
+precautions = pd.read_csv("E:\Medicine-Recommendation-System\Medicine-Recommendation-System\dataset\precautions_df.csv")
+workout = pd.read_csv("E:\Medicine-Recommendation-System\Medicine-Recommendation-System\dataset\workout_df.csv")
+description = pd.read_csv("E:\Medicine-Recommendation-System\Medicine-Recommendation-System\dataset\description.csv")
+medications = pd.read_csv('E:\Medicine-Recommendation-System\Medicine-Recommendation-System\dataset\medications.csv')
+diets = pd.read_csv("E:\Medicine-Recommendation-System\Medicine-Recommendation-System\dataset\diets.csv")
 
 
 def helper(pre_disease):
